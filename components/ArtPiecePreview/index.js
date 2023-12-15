@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function ArtPiecePreview({ image, title, artist }) {
   return (
     <>
-      <Image src={image} width={240} height={240} />
+      <Image src={image} width={240} height={240} alt={title} />
       <h3>{title}</h3>
       <p>{artist}</p>
     </>
