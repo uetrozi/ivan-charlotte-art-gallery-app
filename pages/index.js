@@ -9,12 +9,11 @@ const URL = "https://example-apis.vercel.app/api/art";
 export default function HomePage() {
   const { data, error, isLoading } = useSWR(URL, fetcher);
 
-  console.log(data);
-
   if (error) return <div>{error.message}</div>;
   if (isLoading) return <div>loading...</div>;
 
   const randomPic = data[Math.floor(Math.random() * data.length)];
+
   console.log(randomPic);
 
   return (
