@@ -1,8 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
+
 
 export default function ArtPieceDetails({ image, artist, title, year, genre }) {
   return (
     <>
+    <button>
+      <Link href={`/art-pieces/`}>Go Back</Link></button>
       <Image src={image} width={240} height={240} alt={image} />
       <p>Title: {title}</p>
       <p>Artist: {artist}</p>
