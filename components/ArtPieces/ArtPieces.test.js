@@ -32,6 +32,8 @@ test("All art pieces are displayed as a list", () => {
   render(<ArtPieces pieces={testPieces} />);
   const list = screen.getByRole("list");
   expect(list).toBeInTheDocument();
+  const listItems = screen.getAllByRole("listitem");
+  expect(listItems).toHaveLength(3);
 });
 
 test("Each art piece's image is displayed", () => {

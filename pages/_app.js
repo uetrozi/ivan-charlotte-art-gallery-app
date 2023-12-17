@@ -1,7 +1,6 @@
 import useSWR from "swr";
 import { useState } from "react";
 import Layout from "@/components/Layout/layout";
-
 import GlobalStyle from "../styles";
 import { SWRConfig } from "swr";
 

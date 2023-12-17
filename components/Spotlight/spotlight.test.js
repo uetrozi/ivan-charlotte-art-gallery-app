@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Spotlight from ".";
-
+import Spotlight from "./spotlight";
 
 test("The art piece image is displayed", () => {
   const artistTest = "dilara irem";
