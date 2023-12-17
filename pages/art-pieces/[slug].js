@@ -1,19 +1,19 @@
 import { useRouter } from "next/router";
 import ArtPieceDetails from "@/components/ArtPieceDetails/ArtPieceDetails";
 
-export default function ArtPieceDetailsPage({ data }) {
+export default function ArtPieceDetailsPage({ pieces }) {
   const router = useRouter();
   const { slug } = router.query;
 
-  const currentIndex = data.findIndex((piece) => piece.slug === slug);
+  const currentIndex = pieces.findIndex((piece) => piece.slug === slug);
 
-  const currentPiece = data[currentIndex];
+  const currentPiece = pieces[currentIndex];
 
   if (!currentPiece) {
     return null;
   }
 
-  console.log(currentPiece);
+  console.log(currentPiece)
 
   return (
     <div>

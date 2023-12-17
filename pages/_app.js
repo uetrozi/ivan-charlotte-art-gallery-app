@@ -15,6 +15,8 @@ export default function App({ Component, pageProps }) {
   if (error) return <div>{error.message}</div>;
   if (isLoading) return <div>loading...</div>;
 
+  console.log(data)
+
 
   return (
     <>
@@ -26,7 +28,7 @@ export default function App({ Component, pageProps }) {
       >
         <GlobalStyle />
         <Layout/>
-        <Component {...pageProps} data={data} />
+        <Component {...pageProps} pieces={data} />
       </SWRConfig>
     </>
   );
