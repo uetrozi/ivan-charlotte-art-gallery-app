@@ -3,8 +3,7 @@ import FavoriteButton from "./FavoriteButton";
 import Spotlight from "../Spotlight/spotlight";
 import ArtPieces from "@/pages/art-pieces";
 import ArtPieceDetails from "../ArtPieceDetails/ArtPieceDetails";
-
-
+import userEvent from "@testing-library/user-event";
 
 test("the favorite-button is displayed in the spotlight view", () => {
   const artistTest = "dilara irem";
@@ -58,6 +57,7 @@ const testPiece = {
     "https://example-apis.vercel.app/assets/art/clay-bust-sculptures.jpg",
   year: "2022",
   genre: "Classics",
+  isFavorite: false,
 };
 
 test("The favorite-button is displayed in the details view", () => {
@@ -68,6 +68,7 @@ test("The favorite-button is displayed in the details view", () => {
       artist={testPiece.testartist}
       year={testPiece.year}
       genre={testPiece.genre}
+      isFavorite={testPiece.isFavorite}
     />
   );
   const button = screen.getByAltText(/Favorite-button/i);
@@ -75,9 +76,18 @@ test("The favorite-button is displayed in the details view", () => {
 });
 
 test("Clicking the favorite-button on a non-favorite piece saves it as a favorite", async () => {
-    // const user = userEvent.setup();
-    // render(<FavoriteButton isFavorite={false} onToggleFavorite={hand} />);
-    // const button 
-
-
-})
+  const user = userEvent.setup();
+  render(
+    <ArtPieceDetails
+      image={testPiece.imageSource}
+      title={testPiece.name}
+      artist={testPiece.testartist}
+      year={testPiece.year}
+      genre={testPiece.genre}
+      isFavorite={testPiece.isFavorite}
+    />
+  );
+  const button = screen.getByAltText(/Favorite-button/i);
+  await user.click(button);
+  
+});

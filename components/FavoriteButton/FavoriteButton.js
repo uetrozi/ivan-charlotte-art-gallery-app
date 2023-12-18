@@ -3,8 +3,7 @@ import styled from "styled-components";
 
 const Button = styled.button`
   border-radius: 40px;
-  background-color: ${({ $isFavorite }) =>
-    $isFavorite === true ? "coral" : "white"};
+  background-color: ${({$isFavorite}) => ($isFavorite === true ? "coral" : "white")};
 `;
 
 export default function FavoriteButton({ isFavorite, onToggleFavorite }) {
