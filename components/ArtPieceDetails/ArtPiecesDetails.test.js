@@ -21,7 +21,7 @@ test("The art piece image, title, artist, year and genre is displayed", () => {
       genre={testPiece.genre}
     />
   );
-  const image = screen.getByRole("img");
+  const image = screen.getByRole("img", { name: testPiece.imageSource });
   const title = screen.getByText(/Clay Bust Sculptures/i);
   const artist = screen.getByText(/dilara irem/i);
   const year = screen.getByText(/2022/i);

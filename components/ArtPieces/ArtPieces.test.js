@@ -39,7 +39,7 @@ test("All art pieces are displayed as a list", () => {
 test("Each art piece's image is displayed", () => {
   render(<ArtPieces pieces={testPieces} />);
   const image = screen.getAllByRole("img");
-  expect(image).toHaveLength(3);
+  expect(image).toHaveLength(6);
 });
 
 test("Each art piece's title is displayed", () => {
