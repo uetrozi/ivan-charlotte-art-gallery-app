@@ -19,8 +19,6 @@ export default function App({ Component, pageProps }) {
   //   defaultValue: [],
   // });
 
- 
-
   if (error) return <div>{error.message}</div>;
   if (isLoading) return <div>loading...</div>;
 
@@ -41,11 +39,8 @@ export default function App({ Component, pageProps }) {
     } else {
       setArtPiecesInfo([...artPiecesInfo, { slug, isFavorite: true }]);
     }
-
-    console.log(artPiecesInfo);
   }
   console.log(artPiecesInfo);
-
   return (
     <>
       <SWRConfig
