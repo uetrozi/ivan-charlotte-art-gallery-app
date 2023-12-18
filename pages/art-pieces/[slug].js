@@ -13,8 +13,6 @@ export default function ArtPieceDetailsPage({ pieces }) {
     return null;
   }
 
-  console.log(currentPiece)
-
   return (
     <div>
       <ArtPieceDetails

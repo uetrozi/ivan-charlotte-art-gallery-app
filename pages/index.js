@@ -1,7 +1,10 @@
-import useSWR from "swr";
 import Spotlight from "@/components/Spotlight/spotlight";
 
-export default function SpotlightPage({ pieces }) {
+export default function SpotlightPage({
+  pieces,
+  artPiecesInfo,
+  onToggleFavorite,
+}) {
   const randomPic = pieces[Math.floor(Math.random() * pieces.length)];
 
   return (
@@ -9,6 +12,11 @@ export default function SpotlightPage({ pieces }) {
       <Spotlight
         image={randomPic.imageSource}
         artist={randomPic.artist}
+        isFavorite={
+          artPiecesInfo.find((piece) => piece.slug === randomPic.slug)
+            ?.isFavorite
+        }
+        onToggleFavorite={() => onToggleFavorite(randomPic.slug)}
       ></Spotlight>
     </div>
   );
