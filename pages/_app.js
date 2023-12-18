@@ -15,18 +15,14 @@ export default function App({ Component, pageProps }) {
     "art-pieces-info",
     { defaultValue: [] }
   );
-  // const [favorites, setFavorites] = useImmerLocalStorageState("Favorites", {
-  //   defaultValue: [],
-  // });
+
 
   if (error) return <div>{error.message}</div>;
   if (isLoading) return <div>loading...</div>;
 
   function handleToggleFavorite(slug) {
     const artPiece = artPiecesInfo.find((piece) => piece.slug === slug);
-    // setFavorites([{ ...artPieceToAdd }, ...favorites]);
-
-    // console.log(favorites);
+   
 
     if (artPiece) {
       setArtPiecesInfo(
@@ -40,7 +36,6 @@ export default function App({ Component, pageProps }) {
       setArtPiecesInfo([...artPiecesInfo, { slug, isFavorite: true }]);
     }
   }
-  console.log(artPiecesInfo);
   return (
     <>
       <SWRConfig
