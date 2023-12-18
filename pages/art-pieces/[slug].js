@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import ArtPieceDetails from "@/components/ArtPieceDetails/ArtPieceDetails";
 
-export default function ArtPieceDetailsPage({ pieces }) {
+export default function ArtPieceDetailsPage({ pieces, onSubmitComment}) {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -21,6 +21,7 @@ export default function ArtPieceDetailsPage({ pieces }) {
         artist={currentPiece.artist}
         year={currentPiece.year}
         genre={currentPiece.genre}
+        onSubmitComment={() => onSubmitComment(currentPiece.slug, "new Comment")}
       />
     </div>
   );

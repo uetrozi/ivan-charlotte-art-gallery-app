@@ -16,14 +16,11 @@ export default function App({ Component, pageProps }) {
     { defaultValue: [] }
   );
 
-
   if (error) return <div>{error.message}</div>;
   if (isLoading) return <div>loading...</div>;
 
   function handleToggleFavorite(slug) {
     const artPiece = artPiecesInfo.find((piece) => piece.slug === slug);
-   
-
     if (artPiece) {
       setArtPiecesInfo(
         artPiecesInfo.map((pieceInfo) =>
@@ -36,6 +33,35 @@ export default function App({ Component, pageProps }) {
       setArtPiecesInfo([...artPiecesInfo, { slug, isFavorite: true }]);
     }
   }
+
+  function handleAddComment(event, slug, newComment) {
+    console.log(event.target)
+    const artPiece = artPiecesInfo.find((piece) => piece.slug === slug);
+
+    console.log("Comment added");
+    console.log(slug)
+
+    if (artPiece) {
+      setArtPiecesInfo(
+        artPiecesInfo.map((pieceInfo) => {
+          if (pieceInfo.slug === slug) {
+            return pieceInfo.comments
+              ? {
+                  ...pieceInfo,
+                  comments: [...pieceInfo.comments, newComment],
+                }
+              : { ...pieceInfo, comments: [newComment] };
+          }
+        })
+      );
+    } else {
+      setArtPiecesInfo([
+        ...artPiecesInfo,
+        { slug, isFavorite: false, newComment },
+      ]);
+    }
+  }
+
   return (
     <>
       <SWRConfig
@@ -51,6 +77,7 @@ export default function App({ Component, pageProps }) {
           artPiecesInfo={artPiecesInfo}
           pieces={data}
           onToggleFavorite={handleToggleFavorite}
+          onSubmitComment={handleAddComment}
         />
       </SWRConfig>
     </>

@@ -17,7 +17,7 @@ export default function ArtPiecePreview({
         isFavorite={isFavorite}
         onToggleFavorite={onToggleFavorite}
       />
-      <Link href={`/art-pieces/${slug}`}></Link>
+      <Link href={`/art-pieces/${slug}`}>See more</Link>
       <Image src={image} width={240} height={240} alt={title} />
       <h3>{title}</h3>
       <p>{artist}</p>

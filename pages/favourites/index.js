@@ -11,6 +11,9 @@ export default function FavouritePage({
     )
   );
 
+
+  
+
   return (
     <ArtPieces
       pieces={favorites}

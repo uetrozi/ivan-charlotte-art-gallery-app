@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
+import CommentForm from "../CommentForm/commentForm";
 
-export default function ArtPieceDetails({ image, artist, title, year, genre }) {
+export default function ArtPieceDetails({ image, artist, title, year, genre, onSubmitComment }) {
   return (
     <>
       <button>
@@ -14,6 +15,7 @@ export default function ArtPieceDetails({ image, artist, title, year, genre }) {
       <p>Artist: {artist}</p>
       <p>Year: {year}</p>
       <p>Genre: {genre}</p>
+      <CommentForm onSubmitComment={onSubmitComment}/>
     </>
   );
 }
