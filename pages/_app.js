@@ -35,7 +35,7 @@ export default function App({ Component, pageProps }) {
   }
 
   function handleAddComment(event, slug, newComment) {
-    console.log(event.target)
+    console.log(event)
     const artPiece = artPiecesInfo.find((piece) => piece.slug === slug);
 
     console.log("Comment added");

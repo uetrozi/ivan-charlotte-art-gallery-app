@@ -9,7 +9,7 @@ test("The art piece image is displayed", () => {
 
   render(<Spotlight image={imageSource} artist={artistTest} />);
 
-  const image = screen.getByRole("img");
+  const image = screen.getByRole("img", {name: imageSource} );
   expect(image).toBeInTheDocument();
 });
 
