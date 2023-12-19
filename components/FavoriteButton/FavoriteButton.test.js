@@ -89,5 +89,5 @@ test("Clicking the favorite-button on a non-favorite piece saves it as a favorit
   );
   const button = screen.getByAltText(/Favorite-button/i);
   await user.click(button);
-  
+  expect(button).toBeInTheDocument();
 });
