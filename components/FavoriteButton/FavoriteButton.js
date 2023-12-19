@@ -11,12 +11,18 @@ const Button = styled.button`
   height: 50px;
   background-color: ${({ $isFavorite }) =>
     $isFavorite === true ? "coral" : "white"};
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export default function FavoriteButton({ slug }) {
   const onToggleFavorite = useStore((state) => state.toggleFavorite);
 
+  const info = useStore((state) => state.artPiecesInfo);
+
   function handleToggle() {
+    console.log(info);
     onToggleFavorite(slug);
   }
 

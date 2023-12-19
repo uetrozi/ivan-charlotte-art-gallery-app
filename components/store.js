@@ -9,8 +9,8 @@ export const useStore = create((set) => ({
       const comment = {
         value: newComment,
         timestamp: new Date().getTime(),
-        time: new Date().toDateString(),
-        date: new Date().toTimeString(),
+        time: new Date().toTimeString(),
+        date: new Date().toDateString(),
       };
 
       if (piece) {
@@ -39,7 +39,6 @@ export const useStore = create((set) => ({
         piece.isFavorite = !piece.isFavorite;
       } else {
         piece = { slug: slug, isFavorite: true };
-        console.log({ artPiecesInfo: [piece] });
       }
       return { artPiecesInfo: [...state.artPiecesInfo, piece] };
     }),

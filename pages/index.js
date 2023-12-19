@@ -2,8 +2,7 @@ import Spotlight from "@/components/Spotlight/spotlight";
 
 export default function SpotlightPage({
   pieces,
-  artPiecesInfo,
-  onToggleFavorite,
+ 
 }) {
   const randomPic = pieces[Math.floor(Math.random() * pieces.length - 1)];
 

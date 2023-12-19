@@ -20,20 +20,20 @@ export default function App({ Component, pageProps }) {
   if (error) return <div>{error.message}</div>;
   if (isLoading) return <div>loading...</div>;
 
-  function handleToggleFavorite(slug) {
-    const artPiece = artPiecesInfo.find((piece) => piece.slug === slug);
-    if (artPiece) {
-      setArtPiecesInfo(
-        artPiecesInfo.map((pieceInfo) =>
-          pieceInfo.slug === slug
-            ? { slug, isFavorite: !pieceInfo.isFavorite }
-            : pieceInfo
-        )
-      );
-    } else {
-      setArtPiecesInfo([...artPiecesInfo, { slug, isFavorite: true }]);
-    }
-  }
+  // function handleToggleFavorite(slug) {
+  //   const artPiece = artPiecesInfo.find((piece) => piece.slug === slug);
+  //   if (artPiece) {
+  //     setArtPiecesInfo(
+  //       artPiecesInfo.map((pieceInfo) =>
+  //         pieceInfo.slug === slug
+  //           ? { slug, isFavorite: !pieceInfo.isFavorite }
+  //           : pieceInfo
+  //       )
+  //     );
+  //   } else {
+  //     setArtPiecesInfo([...artPiecesInfo, { slug, isFavorite: true }]);
+  //   }
+  // }
 
   // function handleAddComment(slug, newComment) {
   //   console.log(slug, newComment);
@@ -78,7 +78,6 @@ export default function App({ Component, pageProps }) {
           {...pageProps}
           artPiecesInfo={artPiecesInfo}
           pieces={data}
-          onToggleFavorite={handleToggleFavorite}
         />
       </SWRConfig>
     </>

@@ -1,5 +1,3 @@
-import { Fragment } from "react";
-
 export default function Comments({ comments }) {
   return (
     <>
@@ -7,7 +5,9 @@ export default function Comments({ comments }) {
       <ul>
         {comments?.map((comment) => (
           <li key={comment.timestamp}>
-            {comment.value} date={comment.date} time={comment.time}
+            {comment.value}
+            <p>date:{comment.date} </p>
+            <p>time:{comment.time}</p>
           </li>
         ))}
       </ul>
