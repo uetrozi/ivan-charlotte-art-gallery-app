@@ -1,4 +1,5 @@
 import ArtPiecePreview from "@/components/ArtPiecePreview";
+import "./ArtPieces";
 
 export default function ArtPieces({ pieces }) {
   return (

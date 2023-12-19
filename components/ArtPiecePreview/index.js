@@ -1,15 +1,40 @@
 import Image from "next/image";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 import Link from "next/link";
+import styled from "styled-components";
+
+const ImageStyled = styled(Image)`
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: 10px;
+`;
+
+const ParagraphStyled = styled.p`
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 30px;
+
+  margin: 0px;
+`;
+
+const SubTitleStyled = styled.h3`
+  margin: 0px;
+  padding-top: 10px;
+`;
 
 export default function ArtPiecePreview({ image, title, artist, slug }) {
   return (
     <>
+
       <FavoriteButton slug={slug} />
-      <Link href={`/art-pieces/${slug}`}>See more</Link>
-      <Image src={image} width={240} height={240} alt={title} />
-      <h3>{title}</h3>
-      <p>{artist}</p>
+     
+      <Link href={`/art-pieces/${slug}`}>
+        <ImageStyled src={image} width={240} height={240} alt={title} />
+
+        <SubTitleStyled>{title}</SubTitleStyled>
+        <ParagraphStyled>{artist}</ParagraphStyled>
+      </Link>
+
     </>
   );
 }

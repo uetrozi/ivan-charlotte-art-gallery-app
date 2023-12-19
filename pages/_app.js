@@ -2,6 +2,8 @@ import useSWR from "swr";
 import Layout from "@/components/Layout/layout";
 import GlobalStyle from "../styles";
 import { SWRConfig } from "swr";
+import "../app.css";
+
 import { useImmerLocalStorageState } from "@/resources/lib/hook/useImmerLocalStorageState";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
