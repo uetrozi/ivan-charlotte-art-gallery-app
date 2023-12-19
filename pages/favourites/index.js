@@ -1,5 +1,5 @@
 import ArtPieces from "@/components/ArtPieces/ArtPieces";
-import { useStore } from "../../pages/store";
+import { useStore } from "../../components/store";
 
 export default function FavouritePage({ pieces }) {
   const favorites = useStore((state) =>

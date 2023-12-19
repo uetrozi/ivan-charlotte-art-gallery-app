@@ -3,7 +3,7 @@ import Link from "next/link";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 import CommentForm from "../CommentForm/CommentForm";
 import Comments from "../Comments/Comments";
-import { useStore } from "../../pages/store";
+import { useStore } from "../store";
 
 export default function ArtPieceDetails({
   image,

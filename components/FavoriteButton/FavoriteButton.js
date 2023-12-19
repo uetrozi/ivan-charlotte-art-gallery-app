@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { useStore } from "../../pages/store";
+import { useStore } from "../store";
 
 const Button = styled.button`
   border-radius: 50px;
