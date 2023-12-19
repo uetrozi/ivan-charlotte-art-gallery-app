@@ -3,6 +3,7 @@ export default function CommentForm({ slug, onSubmitComment }) {
     event.preventDefault();
     const comment = document.getElementById("Add-Comment").value;
     onSubmitComment(slug, comment);
+    event.target.reset();
   }
 
   return (

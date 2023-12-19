@@ -5,18 +5,14 @@ export default function SpotlightPage({
   artPiecesInfo,
   onToggleFavorite,
 }) {
-  const randomPic = pieces[Math.floor(Math.random() * pieces.length)];
+  const randomPic = pieces[Math.floor(Math.random() * pieces.length - 1)];
 
   return (
     <div>
       <Spotlight
         image={randomPic.imageSource}
         artist={randomPic.artist}
-        isFavorite={
-          artPiecesInfo.find((piece) => piece.slug === randomPic.slug)
-            ?.isFavorite
-        }
-        onToggleFavorite={() => onToggleFavorite(randomPic.slug)}
+        slug={randomPic.slug}
       ></Spotlight>
     </div>
   );
