@@ -2,14 +2,15 @@ import { Fragment } from "react";
 
 export default function Comments({ comments }) {
   return (
-    <ul>
-      {comments.map((comment) => (
-        <Fragment key={comment.time}>
-          <li date={comment.date} time={comment.time}>
-            {comment.value}
+    <>
+      <h1>Comments</h1>
+      <ul>
+        {comments?.map((comment) => (
+          <li key={comment.timestamp}>
+            {comment.value} date={comment.date} time={comment.time}
           </li>
-        </Fragment>
-      ))}
-    </ul>
+        ))}
+      </ul>
+    </>
   );
 }

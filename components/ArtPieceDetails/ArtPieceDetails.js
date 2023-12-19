@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 import CommentForm from "../CommentForm/CommentForm";
+import Comments from "../Comments/Comments";
+import { useStore } from "../../pages/store";
 
 export default function ArtPieceDetails({
   image,
@@ -9,11 +11,15 @@ export default function ArtPieceDetails({
   title,
   year,
   genre,
-  onSubmitComment,
   slug,
   isFavorite,
-  onToggleFavorite
+  onToggleFavorite,
 }) {
+  const onSubmitComment = useStore((state) => state.addComment);
+  const piece = useStore((state) =>
+    state.artPiecesInfo.find((piece) => piece.slug === slug)
+  );
+
   return (
     <>
       <button>
@@ -29,7 +35,8 @@ export default function ArtPieceDetails({
       <p>Artist: {artist}</p>
       <p>Year: {year}</p>
       <p>Genre: {genre}</p>
-      <CommentForm onSubmitComment={onSubmitComment} />
+      <CommentForm onSubmitComment={onSubmitComment} slug={slug} />
+      <Comments comments={piece?.comments} />
     </>
   );
 }

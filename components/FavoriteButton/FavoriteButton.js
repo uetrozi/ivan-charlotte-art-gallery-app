@@ -6,6 +6,7 @@ const Button = styled.button`
   background-color: ${({$isFavorite}) => ($isFavorite === true ? "coral" : "white")};
 `;
 
+
 export default function FavoriteButton({ isFavorite, onToggleFavorite }) {
   return (
     <Button type="button" onClick={onToggleFavorite} $isFavorite={isFavorite}>

@@ -26,6 +26,7 @@ export default function ArtPieceDetailsPage({
         artist={currentPiece.artist}
         year={currentPiece.year}
         genre={currentPiece.genre}
+        artPiecesInfo={artPiecesInfo}
         isFavorite={
           artPiecesInfo?.find((artPiece) => artPiece.slug === currentPiece.slug)
             ?.isFavorite
@@ -33,7 +34,7 @@ export default function ArtPieceDetailsPage({
         slug={slug}
         onToggleFavorite={() => onToggleFavorite(currentPiece.slug)}
         onSubmitComment={() =>
-          onSubmitComment(currentPiece.slug, "new Comment")
+          onSubmitComment(currentPiece.slug)
         }
       />
     </div>
