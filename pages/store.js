@@ -5,6 +5,7 @@ export const useStore = create((set) => ({
   addComment: (slug, newComment) =>
     set((state) => {
       let piece = state.artPiecesInfo.find((info) => info.slug === slug);
+
       const comment = {
         value: newComment,
         timestamp: new Date().getTime(),
@@ -12,7 +13,6 @@ export const useStore = create((set) => ({
         date: new Date().toTimeString(),
       };
 
-      console.log(piece);
       if (piece) {
         if (piece.comments) {
           piece.comments.push(comment);
@@ -28,6 +28,19 @@ export const useStore = create((set) => ({
       }
       console.log({ artPiecesInfo: [...state.artPiecesInfo, piece] });
 
+      return { artPiecesInfo: [...state.artPiecesInfo, piece] };
+    }),
+
+  toggleFavorite: (slug) =>
+    set((state) => {
+      let piece = state.artPiecesInfo.find((info) => info.slug === slug);
+      console.log(piece);
+      if (piece) {
+        piece.isFavorite = !piece.isFavorite;
+      } else {
+        piece = { slug: slug, isFavorite: true };
+        console.log({ artPiecesInfo: [piece] });
+      }
       return { artPiecesInfo: [...state.artPiecesInfo, piece] };
     }),
 }));

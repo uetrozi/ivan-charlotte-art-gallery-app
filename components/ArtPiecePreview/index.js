@@ -22,27 +22,19 @@ const SubTitleStyled = styled.h3`
   padding-top: 10px;
 `;
 
-export default function ArtPiecePreview({
-  image,
-  title,
-  artist,
-  slug,
-  isFavorite,
-  onToggleFavorite,
-}) {
+export default function ArtPiecePreview({ image, title, artist, slug }) {
   return (
     <>
-      <FavoriteButton
-        slug={slug}
-        isFavorite={isFavorite}
-        onToggleFavorite={onToggleFavorite}
-      />
+
+      <FavoriteButton slug={slug} />
+     
       <Link href={`/art-pieces/${slug}`}>
         <ImageStyled src={image} width={240} height={240} alt={title} />
 
         <SubTitleStyled>{title}</SubTitleStyled>
         <ParagraphStyled>{artist}</ParagraphStyled>
       </Link>
+
     </>
   );
 }

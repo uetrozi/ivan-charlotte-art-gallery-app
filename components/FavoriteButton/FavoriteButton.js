@@ -1,7 +1,22 @@
 import Image from "next/image";
 import styled from "styled-components";
+import { useStore } from "../../pages/store";
 
 const Button = styled.button`
+
+
+export default function FavoriteButton({ slug }) {
+  const onToggleFavorite = useStore((state) => state.toggleFavorite);
+
+  function handleToggle() {
+    onToggleFavorite(slug);
+  }
+
+  const piece = useStore((state) =>
+    state.artPiecesInfo.find((piece) => piece.slug === slug)
+  );
+  const isFavorite = piece?.isFavorite;
+=======
   border-radius: 50px;
   position: absolute;
 
@@ -12,9 +27,9 @@ const Button = styled.button`
     $isFavorite === true ? "coral" : "white"};
 `;
 
-export default function FavoriteButton({ isFavorite, onToggleFavorite }) {
+
   return (
-    <Button type="button" onClick={onToggleFavorite} $isFavorite={isFavorite}>
+    <Button type="button" onClick={handleToggle} $isFavorite={isFavorite}>
       <Image
         src="/assets/heart.svg"
         width={30}

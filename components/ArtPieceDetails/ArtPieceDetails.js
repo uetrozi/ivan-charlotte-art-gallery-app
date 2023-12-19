@@ -12,10 +12,9 @@ export default function ArtPieceDetails({
   year,
   genre,
   slug,
-  isFavorite,
-  onToggleFavorite,
 }) {
   const onSubmitComment = useStore((state) => state.addComment);
+
   const piece = useStore((state) =>
     state.artPiecesInfo.find((piece) => piece.slug === slug)
   );
@@ -25,11 +24,7 @@ export default function ArtPieceDetails({
       <button>
         <Link href={`/art-pieces/`}>Go Back</Link>
       </button>
-      <FavoriteButton
-        slug={slug}
-        isFavorite={isFavorite}
-        onToggleFavorite={onToggleFavorite}
-      />
+      <FavoriteButton slug={slug} isFavorite={piece?.isFavorite} />
       <Image src={image} width={240} height={240} alt={image} />
       <p>Title: {title}</p>
       <p>Artist: {artist}</p>
