@@ -3,7 +3,15 @@ import styled from "styled-components";
 import { useStore } from "../../pages/store";
 
 const Button = styled.button`
+  border-radius: 50px;
+  position: absolute;
 
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  background-color: ${({ $isFavorite }) =>
+    $isFavorite === true ? "coral" : "white"};
+`;
 
 export default function FavoriteButton({ slug }) {
   const onToggleFavorite = useStore((state) => state.toggleFavorite);
@@ -16,17 +24,6 @@ export default function FavoriteButton({ slug }) {
     state.artPiecesInfo.find((piece) => piece.slug === slug)
   );
   const isFavorite = piece?.isFavorite;
-=======
-  border-radius: 50px;
-  position: absolute;
-
-  z-index: 1;
-  width: 50px;
-  height: 50px;
-  background-color: ${({ $isFavorite }) =>
-    $isFavorite === true ? "coral" : "white"};
-`;
-
 
   return (
     <Button type="button" onClick={handleToggle} $isFavorite={isFavorite}>
