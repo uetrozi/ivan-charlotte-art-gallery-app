@@ -8,6 +8,9 @@ export default createGlobalStyle`
   }
 
   body {
+    display: flex,
+    justify-content: center,
+    align-items: center,
     margin: 0;
     font-family: system-ui;
   }
